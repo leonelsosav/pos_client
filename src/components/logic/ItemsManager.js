@@ -3,7 +3,7 @@ import db from '../../db/firebase'
 import * as alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
 
-const ItemsManager = (route, document) => {
+const ItemsManager = (route) => {
     const [items, setItems] = useState([]);
     const [formNuevo, setFormNuevo] = useState(false);
 
@@ -28,7 +28,7 @@ const ItemsManager = (route, document) => {
             });
             setItems(nuevoArr);
         }
-        alertify.confirm('Kasterz', `¿Desea elminar este ${route}?`, () => { alertify.success('Ok'); eliminar(); }
+        alertify.confirm('Kasterz', `¿Desea eliminar este ${route}?`, () => { alertify.success('Ok'); eliminar(); }
             , () => { alertify.error('Cancel') });
     }
 
@@ -39,6 +39,7 @@ const ItemsManager = (route, document) => {
                 nuevoId = items.reduce((acc, currValue) => Number(acc.Id) > Number(currValue.Id) ? acc : currValue);
                 nuevoId = Number(nuevoId.Id) + 1;
             }
+            data.Id !== undefined && (nuevoId = data.Id);
             let dataC = { ...data, Id: nuevoId.toString() }
             await fetch(`${process.env.REACT_APP_API_URL}/${route}`, {
                 method: 'POST',

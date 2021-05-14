@@ -11,13 +11,12 @@ const Empleados = () => {
     const estructura = useRef([
         { nombre: "Nombre", tipo: "text" },
         { nombre: "Celular", tipo: "number" },
-        { nombre: "Email", tipo: "text" },
-        { nombre: "FechaNacimiento", tipo: "date" },
         { nombre: "Direccion", tipo: "text" },
-        { nombre: "FechaIngreso", tipo: "date" }
-
+        { nombre: "Email", tipo: "text" },
+        { nombre: "FechaIngreso", tipo: "date" },
+        { nombre: "FechaNacimiento", tipo: "date" }
     ]);
-    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = ItemsManager("empleado", "empleados");
+    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = ItemsManager("empleado");
 
     return (
         <>

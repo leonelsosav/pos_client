@@ -16,7 +16,7 @@ const Productos = () => {
         { nombre: "Existencia", tipo: "number" },
         { nombre: "Mostrador", tipo: "number" }
     ]);
-    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = ItemsManager("producto", "productos");
+    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = ItemsManager("producto");
 
     return (
         <>
