@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import db from '../../db/firebase'
 import * as alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
 

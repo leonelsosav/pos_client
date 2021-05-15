@@ -1,0 +1,38 @@
+.container {
+    border: 1px solid #060b26;
+    margin: 20px;
+    padding: 20px;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.lbl {
+    display: inline-block;
+}
+
+.tabla {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr;
+    grid-auto-rows: auto;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.btn-guardar {
+    display: block;
+    margin: auto;
+    font-size: 1.5em;
+    padding: 5px;
+    border: 1px solid #060b26;
+    margin-top: 10px;
+    background-color: white;
+}
+
+@media screen and (max-width: 780px) {
+    .tabla {
+        grid-template-columns: repeat(2, 47.5%);
+    }
+}

@@ -3,6 +3,7 @@ import '../styles/Form.css'
 import * as alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
 
+//TODO: cambiar a logic
 const Form = ({ estructura, txtBtn, guardarNuevoFn }) => {
     const [inputs, setInputs] = useState(Array(estructura.length).fill(""));
 

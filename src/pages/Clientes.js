@@ -12,7 +12,7 @@ const Clientes = () => {
         { nombre: "Celular", tipo: "number" },
         { nombre: "Email", tipo: "text" },
         { nombre: "FechaNacimiento", tipo: "date" },
-        { nombre: "Monedero", tipo: "number" },
+        { nombre: "Monedero", tipo: "number", prefix: "$" },
     ]);
     const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = ItemsManager("cliente");
 

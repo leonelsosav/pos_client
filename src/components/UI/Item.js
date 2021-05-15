@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../styles/Tabla.css'
-
+//TODO: cambiar a logic
 const Item = ({ item, idx, onDelete, onEdit, estructura }) => {
     const [inputs, setInputs] = useState(estructura.map(value => item[value.nombre]));
     const [editMode, setEditMode] = useState(false);
@@ -19,9 +19,9 @@ const Item = ({ item, idx, onDelete, onEdit, estructura }) => {
         <div className="item-container">
             {!editMode ? <>
                 <h2 className="titulo">{item.Nombre}</h2>
-                {Object.entries(item).sort().map((entry, index) => {
-                    if (entry[0] !== "Nombre") return (
-                        <h3 key={index} className="subtitulo">{`${entry[0]}: ${entry[1]}`}</h3>
+                {estructura.map((estr, index) => {
+                    if (estr.nombre !== "Nombre") return (
+                        <h3 key={index} className="subtitulo">{`${estr.nombre}: ${estr.prefix ? estr.prefix : ""}${item[estr.nombre]}`}</h3>
                     );
                 })}
                 <button className="btn" onClick={deleteFn}>Eliminar</button>

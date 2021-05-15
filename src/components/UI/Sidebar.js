@@ -4,7 +4,7 @@ import '../styles/Sidebar.css'
 import { useState, useEffect } from 'react'
 import { IconContext } from 'react-icons'
 import * as FaIcons from 'react-icons/fa'
-
+//TODO: cambiar a logic
 const Sidebar = () => {
     const [sidebar, setSidebar] = useState(window.innerWidth > 1000);
 

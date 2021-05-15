@@ -12,7 +12,7 @@ const Productos = () => {
         { nombre: "Id", tipo: "text" },
         { nombre: "Nombre", tipo: "text" },
         { nombre: "Descripcion", tipo: "text" },
-        { nombre: "Precio", tipo: "number" },
+        { nombre: "Precio", tipo: "number", prefix: "$" },
         { nombre: "Existencia", tipo: "number" },
         { nombre: "Mostrador", tipo: "number" }
     ]);
