@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import * as alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
 
-const ItemsManager = (route) => {
+const DAO = (route) => {
     const [items, setItems] = useState([]);
     const [formNuevo, setFormNuevo] = useState(false);
 
@@ -77,4 +77,4 @@ const ItemsManager = (route) => {
     }
 }
 
-export default ItemsManager
+export default DAO

@@ -4,7 +4,7 @@ import TopPart from '../components/UI/TopPart'
 import Form from '../components/UI/Form'
 import Item from '../components/UI/Item'
 import '../components/styles/Tabla.css'
-import ItemsManager from '../components/logic/ItemsManager'
+import DAO from '../components/logic/DAO'
 
 
 const Empleados = () => {
@@ -16,7 +16,7 @@ const Empleados = () => {
         { nombre: "FechaIngreso", tipo: "date" },
         { nombre: "FechaNacimiento", tipo: "date" }
     ]);
-    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = ItemsManager("empleado");
+    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = DAO("empleado");
 
     return (
         <>

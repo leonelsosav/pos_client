@@ -4,7 +4,7 @@ import TopPart from '../components/UI/TopPart'
 import Form from '../components/UI/Form'
 import Item from '../components/UI/Item'
 import '../components/styles/Tabla.css'
-import ItemsManager from '../components/logic/ItemsManager'
+import DAO from '../components/logic/DAO'
 
 
 const Productos = () => {
@@ -16,7 +16,7 @@ const Productos = () => {
         { nombre: "Existencia", tipo: "number" },
         { nombre: "Mostrador", tipo: "number" }
     ]);
-    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = ItemsManager("producto");
+    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = DAO("producto");
 
     return (
         <>

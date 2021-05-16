@@ -4,7 +4,7 @@ import TopPart from '../components/UI/TopPart'
 import Form from '../components/UI/Form'
 import Item from '../components/UI/Item'
 import '../components/styles/Tabla.css'
-import ItemsManager from '../components/logic/ItemsManager'
+import DAO from '../components/logic/DAO'
 
 const Clientes = () => {
     const estructura = useRef([
@@ -14,7 +14,7 @@ const Clientes = () => {
         { nombre: "FechaNacimiento", tipo: "date" },
         { nombre: "Monedero", tipo: "number", prefix: "$" },
     ]);
-    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = ItemsManager("cliente");
+    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = DAO("cliente");
 
     return (
         <>
