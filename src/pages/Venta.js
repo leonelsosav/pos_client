@@ -16,7 +16,7 @@ const Venta = () => {
     ]);
     const { items, formNuevo, toggleForm } = ItemsManager("producto");
 
-    const { cartProducts, setCartProducts, addProduct, checkoutFn } = VentaLogic(items);
+    const { cartProducts, addProduct, checkoutFn, total, addFn, subtractFn, deleteFn } = VentaLogic(items);
 
     return (
         <>
@@ -24,7 +24,8 @@ const Venta = () => {
             <div className="workSpace">
                 <TopPart usuario={"Pablo"} titulo={"Venta"} bntNuevoTxt={formNuevo ? "Cerrar carrito" : "Mostrar carrito"} route={"#"}
                     btnListener={toggleForm}></TopPart>
-                {formNuevo && <Cart products={cartProducts} checkoutFn={checkoutFn}></Cart>}
+                {formNuevo && <Cart products={cartProducts} checkoutFn={checkoutFn} total={total} addFn={addFn} subtractFn={subtractFn}
+                    deleteFn={deleteFn}></Cart>}
                 <div className="grid-container">
                     {items.map((value, index) => {
                         return (

@@ -14,7 +14,7 @@
 
 .tabla {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
     grid-auto-rows: auto;
     justify-content: center;
     align-items: center;
@@ -29,6 +29,19 @@
     border: 1px solid #060b26;
     margin-top: 10px;
     background-color: white;
+}
+
+.btn-cart {
+    display: inline-block;
+    width: 20px;
+    background-color: white;
+    font-size: 1.5em;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.eliminar {
+    color: red;
 }
 
 @media screen and (max-width: 780px) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../styles/Tabla.css'
 
 const ProductCard = ({ item, idx, onAddProducto, estructura }) => {
