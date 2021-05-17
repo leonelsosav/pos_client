@@ -1,16 +1,32 @@
 import { useState, useEffect } from 'react'
 import * as alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
+import DAO from './DAO'
 
 const VentaLogic = (items) => {
     const [cartProducts, setCartProducts] = useState([]);
+    const [cliente, setCliente] = useState("");
+    const [idClienteSeleccionado, setIdClienteSeleccionado] = useState("");
     const [total, setTotal] = useState(0);
+    const { guardarNuevoItem } = DAO("venta")
+    const clientes = DAO("cliente");
 
     useEffect(() => {
+        clientes.fetchData();
         cartProducts.length > 0 ? setTotal(cartProducts.reduce((prev, current) => parseInt(prev) + parseInt(current.total), 0)) : setTotal(0);
-    }, [cartProducts])
+    }, [cartProducts]);
 
-    const addProduct = (idx) => {
+    const editIdCliente = (idCliente) => {
+        setIdClienteSeleccionado(idCliente);
+        const res = clientes.items.find(item => item.Id === idCliente);
+        if (res !== undefined) setCliente(res.Nombre);
+        else {
+            alertify.alert('Kasterz', '¡No se encontro ningun cliente con el id ingresado!', function () { alertify.success('Ok'); });
+            setCliente("");
+        }
+    }
+
+    const addProductToCart = (idx) => {
         if (cartProducts.find(product => product.idProducto === items[idx].Id) === undefined) {
             setCartProducts([...cartProducts, {
                 cantidad: 1,
@@ -23,8 +39,15 @@ const VentaLogic = (items) => {
         else alertify.alert('Kasterz', '¡Este producto ya se encuentra en el carrito!', function () { alertify.success('Ok'); });
     }
 
-    const checkoutFn = (numProducts) => {
-        console.log(numProducts);
+    const checkoutFn = () => {/*TODO: Actulizar id empleado y propina*/
+        if (cliente === "") return alertify.alert('Kasterz', '¡Debe ingresar un id de cliente valido!', function () { alertify.success('Ok'); })
+        if (cartProducts.length > 0) {
+            guardarNuevoItem({
+                IdCliente: idClienteSeleccionado, IdEmpleado: "1",
+                Productos: cartProducts, Fecha: new Date(), Propina: 100
+            });
+        }
+        return alertify.alert('Kasterz', '¡Debe existir al menos un elemento en el carrito!', function () { alertify.success('Ok'); });
     }
 
     const addFn = (idProducto) => {
@@ -44,8 +67,9 @@ const VentaLogic = (items) => {
 
     return {
         cartProducts, total,
-        addProduct, checkoutFn,
-        addFn, subtractFn, deleteFn
+        addProductToCart, checkoutFn,
+        addFn, subtractFn, deleteFn,
+        cliente, editIdCliente
     }
 }
 

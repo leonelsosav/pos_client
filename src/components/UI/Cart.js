@@ -2,13 +2,14 @@ import React from 'react'
 import '../styles/Cart.css'
 import CartProduct from './CartProduct'
 
-const Cart = ({ products, checkoutFn, total, addFn, subtractFn, deleteFn }) => {
+const Cart = ({ products, checkoutFn, total, addFn, subtractFn, deleteFn, cliente, editIdCliente }) => {
 
     return (
         <div className="container">
             <h2 className="txt-center">{`TOTAL: $${total}`}</h2>
             <h3 className="lbl">Id del cliente:</h3>
-            <input type="number" name="idCliente" id="idCliente" />
+            <input type="number" name="idCliente" id="idCliente" onBlur={(input) => editIdCliente(input.target.value)} />
+            <h3 className="lbl">{cliente}</h3>
             <div className="tabla">
                 <h3 className="txt-center">Cantidad</h3>
                 <h3 className="txt-center">Producto</h3>
@@ -21,7 +22,7 @@ const Cart = ({ products, checkoutFn, total, addFn, subtractFn, deleteFn }) => {
                     )
                 })}
             </div>
-            <button className="btn-guardar" onClick={() => checkoutFn(products.length)}>Finalizar venta</button>
+            <button className="btn-guardar" onClick={() => checkoutFn()}>Finalizar venta</button>
         </div>
     )
 }

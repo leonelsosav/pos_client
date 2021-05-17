@@ -6,18 +6,15 @@ const DAO = (route) => {
     const [items, setItems] = useState([]);
     const [formNuevo, setFormNuevo] = useState(false);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            fetch(`${process.env.REACT_APP_API_URL}/${route}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(`${process.env.REACT_APP_API_URL}/${route}`);
-                    console.log(data);
-                    setItems(data)
-                });
-        };
-        fetchData();
-    }, []);
+    const fetchData = async () => {
+        fetch(`${process.env.REACT_APP_API_URL}/${route}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(`${process.env.REACT_APP_API_URL}/${route}`);
+                console.log(data);
+                setItems(data)
+            });
+    };
 
     const eliminarItem = (idxItem) => {
         const eliminar = async () => {
@@ -70,7 +67,7 @@ const DAO = (route) => {
     const toggleForm = () => setFormNuevo(!formNuevo);
 
     return {
-        items, setItems,
+        fetchData, items, setItems,
         formNuevo, setFormNuevo,
         eliminarItem, toggleForm,
         guardarNuevoItem, editarItem

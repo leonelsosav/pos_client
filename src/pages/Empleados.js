@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Sidebar from '../components/UI/Sidebar'
 import TopPart from '../components/UI/TopPart'
 import Form from '../components/UI/Form'
@@ -16,8 +16,11 @@ const Empleados = () => {
         { nombre: "FechaIngreso", tipo: "date" },
         { nombre: "FechaNacimiento", tipo: "date" }
     ]);
-    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = DAO("empleado");
+    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem, fetchData } = DAO("empleado");
 
+    useEffect(() => {
+        fetchData();
+    }, [])
     return (
         <>
             <Sidebar></Sidebar>

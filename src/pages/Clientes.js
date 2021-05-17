@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Sidebar from '../components/UI/Sidebar'
 import TopPart from '../components/UI/TopPart'
 import Form from '../components/UI/Form'
@@ -14,7 +14,11 @@ const Clientes = () => {
         { nombre: "FechaNacimiento", tipo: "date" },
         { nombre: "Monedero", tipo: "number", prefix: "$" },
     ]);
-    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem } = DAO("cliente");
+    const { items, formNuevo, eliminarItem, toggleForm, guardarNuevoItem, editarItem, fetchData } = DAO("cliente");
+
+    useEffect(() => {
+        fetchData();
+    }, [])
 
     return (
         <>
