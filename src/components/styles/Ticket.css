@@ -1,0 +1,42 @@
+.btn-regresar {
+    color: #060b26;
+    border: 1px solid #060b26;
+    background-color: white;
+    font-size: 2em;
+    margin-right: 30px;
+    padding: 10px;
+    float: right;
+}
+
+.ticket {
+    margin: 20px;
+    width: 250px;
+}
+
+.txt {
+    margin-top: 20px;
+    color: #060b26;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.tablaT {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+@media print {
+    .btn-regresar {
+        display: none;
+    }
+}

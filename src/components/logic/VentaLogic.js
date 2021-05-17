@@ -2,13 +2,17 @@ import { useState, useEffect } from 'react'
 import * as alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
 import DAO from './DAO'
+import DAOTicket from './DAOTicket'
+import { useHistory } from "react-router-dom";
+
 
 const VentaLogic = (items) => {
     const [cartProducts, setCartProducts] = useState([]);
+    const history = useHistory();
     const [cliente, setCliente] = useState("");
     const [idClienteSeleccionado, setIdClienteSeleccionado] = useState("");
     const [total, setTotal] = useState(0);
-    const { guardarNuevoItem } = DAO("venta")
+    const { guardarNuevoItem } = DAOTicket("venta")
     const clientes = DAO("cliente");
 
     useEffect(() => {
@@ -39,15 +43,20 @@ const VentaLogic = (items) => {
         else alertify.alert('Kasterz', '¡Este producto ya se encuentra en el carrito!', function () { alertify.success('Ok'); });
     }
 
-    const checkoutFn = () => {/*TODO: Actulizar id empleado y propina*/
+    const checkoutFn = async () => {/*TODO: Actualizar id empleado y propina*/
         if (cliente === "") return alertify.alert('Kasterz', '¡Debe ingresar un id de cliente valido!', function () { alertify.success('Ok'); })
         if (cartProducts.length > 0) {
-            guardarNuevoItem({
+            let venta = await guardarNuevoItem({
                 IdCliente: idClienteSeleccionado, IdEmpleado: "1",
                 Productos: cartProducts, Fecha: new Date(), Propina: 100
             });
+
+            history.push({
+                pathname: `/ticket`,
+                state: { idVenta: venta.idVenta }
+            });
         }
-        return alertify.alert('Kasterz', '¡Debe existir al menos un elemento en el carrito!', function () { alertify.success('Ok'); });
+        else alertify.alert('Kasterz', '¡Debe existir al menos un elemento en el carrito!', function () { alertify.success('Ok'); });
     }
 
     const addFn = (idProducto) => {

@@ -27,12 +27,6 @@ export const SidebarData = [
         clase: "sidebar-text"
     },
     {
-        titulo: "Caja",
-        ruta: "/caja",
-        icono: <FaMoneyBillWave />,
-        clase: "sidebar-text"
-    },
-    {
         titulo: "Cerrar Sesion",
         ruta: "/",
         icono: <FaSignOutAlt />,
