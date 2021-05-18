@@ -14,7 +14,7 @@ const Login = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (data.Nombre === pass) {
+        if (data.Nombre === pass && pass !== "") {
             localStorage.setItem("empleado", data.Nombre);
             localStorage.setItem("idEmpleado", usuario);
             history.push('/empleados')
