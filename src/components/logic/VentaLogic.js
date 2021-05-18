@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import * as alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
 import DAO from './DAO'
-import DAOTicket from './DAOTicket'
+import DAOItem from './DAOItem'
 import { useHistory } from "react-router-dom";
 
 
@@ -12,7 +12,7 @@ const VentaLogic = (items) => {
     const [cliente, setCliente] = useState("");
     const [idClienteSeleccionado, setIdClienteSeleccionado] = useState("");
     const [total, setTotal] = useState(0);
-    const { guardarNuevoItem } = DAOTicket("venta")
+    const { guardarNuevoItem } = DAOItem("venta")
     const clientes = DAO("cliente");
 
     useEffect(() => {
@@ -47,8 +47,8 @@ const VentaLogic = (items) => {
         if (cliente === "") return alertify.alert('Kasterz', '¡Debe ingresar un id de cliente valido!', function () { alertify.success('Ok'); })
         if (cartProducts.length > 0) {
             let venta = await guardarNuevoItem({
-                IdCliente: idClienteSeleccionado, IdEmpleado: "1",
-                Productos: cartProducts, Fecha: new Date(), Propina: 100
+                IdCliente: idClienteSeleccionado, IdEmpleado: localStorage.getItem('idEmpleado'),
+                Productos: cartProducts, Fecha: new Date()
             });
 
             history.push({

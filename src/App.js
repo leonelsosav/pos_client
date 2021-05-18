@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from './pages/Login'
 import Empleados from './pages/Empleados'
 import Clientes from './pages/Clientes'
 import Productos from './pages/Productos'
@@ -11,7 +12,8 @@ function App() {
     <>
       <Router>
         <Switch>
-          <Route path="/" exact component={Empleados}></Route>
+          <Route path="/" exact component={Login}></Route>
+          <Route path="/empleados" exact component={Empleados}></Route>
           <Route path="/clientes" component={Clientes}></Route>
           <Route path="/productos" component={Productos}></Route>
           <Route path="/venta" component={Venta}></Route>

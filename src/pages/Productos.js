@@ -24,7 +24,7 @@ const Productos = () => {
         <>
             <Sidebar></Sidebar>
             <div className="workSpace">
-                <TopPart usuario={"Pablo"} titulo={"Productos"} bntNuevoTxt={formNuevo ? "Cerrar" : "Nuevo producto"} route={"#"}
+                <TopPart titulo={"Productos"} bntNuevoTxt={formNuevo ? "Cerrar" : "Nuevo producto"} route={"#"}
                     btnListener={toggleForm}></TopPart>
                 {formNuevo && <Form txtBtn="Guardar Producto" estructura={estructura.current} guardarNuevoFn={guardarNuevoItem}></Form>}
                 <div className="grid-container">

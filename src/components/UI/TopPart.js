@@ -2,19 +2,20 @@ import React from 'react'
 import Logo from '../../assets/logo.png'
 import '../styles/TopPart.css'
 
-const TopPart = ({ usuario, titulo, bntNuevoTxt, btnListener }) => {
+const TopPart = ({ titulo, bntNuevoTxt, btnListener }) => {
+    const empleado = localStorage.getItem('empleado');
     return (
         <>
             <img src={Logo} alt="logo" className="logo" />
             <div className="divUsuario">
-                <span className="saludo">Bienvenido: {usuario}</span>
+                <span className="saludo">Bienvenido: {empleado}</span>
             </div>
-            <br/>
+            <br />
             <h1 className="titulo">{titulo}</h1>
-            <br/>
+            <br />
             <button className="btnNuevo" onClick={btnListener}>{bntNuevoTxt}</button>
-            <br/><br/>
-            <br/>
+            <br /><br />
+            <br />
         </>
     )
 }

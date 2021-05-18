@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const DAOTicket = (route) => {
+const DAOItem = (route) => {
     const [data, setData] = useState({ Productos: [], Fecha: "", Nombre: "" });
 
     const guardarNuevoItem = async (data) => {
@@ -18,7 +18,7 @@ const DAOTicket = (route) => {
         }
     };
 
-    const getVenta = async (id) => {
+    const getItem = async (id) => {
         fetch(`${process.env.REACT_APP_API_URL}/${route}/${id}`)
             .then(response => response.json())
             .then(dataVenta => {
@@ -28,8 +28,8 @@ const DAOTicket = (route) => {
 
 
     return {
-        guardarNuevoItem, getVenta, data
+        guardarNuevoItem, getItem, data
     }
 }
 
-export default DAOTicket
+export default DAOItem

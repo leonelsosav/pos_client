@@ -10,7 +10,7 @@ label {
     width: 200px;
 }
 
-input[type="text"], input[type="number"], input[type="date"] {
+input[type="text"], input[type="number"], input[type="date"], input[type="password"] {
     font-size: 1.2em;
     margin: 5px;
 }

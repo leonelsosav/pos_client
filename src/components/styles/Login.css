@@ -1,0 +1,21 @@
+.login-form {
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+
+.inputs {
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.btn-iniciar {
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+    border: 1px solid #060b26;
+    font-size: 1.5em;
+    padding: 10px;
+}

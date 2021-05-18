@@ -24,7 +24,7 @@ const Venta = () => {
         <>
             <Sidebar></Sidebar>
             <div className="workSpace">
-                <TopPart usuario={"Pablo"} titulo={"Venta"} bntNuevoTxt={formNuevo ? "Cerrar carrito" : "Mostrar carrito"} route={"#"}
+                <TopPart titulo={"Venta"} bntNuevoTxt={formNuevo ? "Cerrar carrito" : "Mostrar carrito"} route={"#"}
                     btnListener={toggleForm}></TopPart>
                 {formNuevo && <Cart products={cartProducts} checkoutFn={checkoutFn} total={total} addFn={addFn} subtractFn={subtractFn}
                     deleteFn={deleteFn} cliente={cliente} editIdCliente={editIdCliente}></Cart>}

@@ -4,7 +4,7 @@ import { FaUserTie, FaUsers, FaShoppingCart, FaSignOutAlt, FaMoneyBillWave, FaSt
 export const SidebarData = [
     {
         titulo: "Empleados",
-        ruta: "/",
+        ruta: "/empleados",
         icono: <FaUserTie />,
         clase: "sidebar-text"
     },
@@ -31,6 +31,9 @@ export const SidebarData = [
         ruta: "/",
         icono: <FaSignOutAlt />,
         clase: "sidebar-text",
-        click: () => { console.log("hola") }
+        click: () => {
+            localStorage.setItem('empleado', "")
+            localStorage.setItem("idEmpleado", "")
+        }
     }
 ]
